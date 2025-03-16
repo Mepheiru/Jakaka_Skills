@@ -1,7 +1,0 @@
-{
-  "name": "Jakaka_Skills",
-  "version_number": "1.1.2",
-  "website_url": "https://github.com/Mepheiru/Jakaka_Skills",
-  "description": "Adds various skills concocted by me and my friends devious minds.",
-  "dependencies": ["RiskofThunder-R2API_ContentManagement-1.0.6"]
-}
