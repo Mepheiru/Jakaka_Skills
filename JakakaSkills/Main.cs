@@ -20,7 +20,7 @@ namespace JakakaSkills
     {
         public const string PluginGUID = "com.Mephy.Jakaka_Skills";
         public const string PluginName = "Jakaka Skills";
-        public const string PluginVersion = "1.6.0";
+        public const string PluginVersion = "2.0.0";
       
         private AssetBundle jakakaassets;
 
