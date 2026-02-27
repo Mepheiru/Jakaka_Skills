@@ -1,6 +1,5 @@
 using BepInEx;
 using EntityStates;
-using JakakaSkills.MyEntityStates;
 using R2API;
 using R2API.Utils;
 using RoR2;
@@ -22,9 +21,12 @@ namespace JakakaSkills
         public const string PluginGUID = "com.Mephy.Jakaka_Skills";
         public const string PluginName = "Jakaka Skills";
         public const string PluginVersion = "1.6.0";
+      
+        private AssetBundle jakakaassets;
 
         public void Awake()
         {
+            LoadAssetBundle();
             AddKeywords();
             AddVendettaSkill();
             AddBlunderbussSkill();
@@ -44,7 +46,28 @@ namespace JakakaSkills
                 }
             }
         }
+        private void LoadAssetBundle()
+        {
+            string folder = System.IO.Path.GetDirectoryName(Info.Location);
+            string path = System.IO.Path.Combine(folder, "jakakaassets");
 
+            if (!System.IO.File.Exists(path))
+            {
+                Logger.LogError($"Asset bundle not found at path: {path}");
+                return;
+            }
+
+            jakakaassets = AssetBundle.LoadFromFile(path);
+
+            if (jakakaassets == null)
+            {
+                Logger.LogError("Failed to load asset bundle!");
+            }
+            else
+            {
+                Logger.LogInfo("Asset bundle loaded successfully.");
+            }
+        }
         public void AddKeywords()
         {
             LanguageAPI.Add("KEYWORD_RELOADABLE", "<style=cKeywordName>Reloadable</style>" + "<style=cSub>Cooldown can be manually triggered by pressing <style=cIsDamage>fire</style> and <style=cIsUtility>interact</style> at the same time.</style>");
@@ -79,7 +102,7 @@ namespace JakakaSkills
             Vendetta.requiredStock = 1;
             Vendetta.stockToConsume = 0;
             Vendetta.autoHandleLuminousShot = true;
-            Vendetta.icon = null; // jakakaassets.LoadAsset<Sprite>("Slayer.png");
+            Vendetta.icon = jakakaassets.LoadAsset<Sprite>("Vendetta.png");
             Vendetta.skillDescriptionToken = "REVOLVER_DESCRIPTION";
             Vendetta.skillName = "Vendetta";
             Vendetta.skillNameToken = "REVOLVER_NAME";
@@ -120,7 +143,7 @@ namespace JakakaSkills
             Blunderbuss.autoHandleLuminousShot = true;
             Blunderbuss.requiredStock = 1;
             Blunderbuss.stockToConsume = 4;
-            Blunderbuss.icon = null; //jakakaassets.LoadAsset<Sprite>("Blunder.png");
+            Blunderbuss.icon = jakakaassets.LoadAsset<Sprite>("Blunder.png");
             Blunderbuss.skillDescriptionToken = "SHOTGUN_DESCRIPTION";
             Blunderbuss.skillName = "Blunderbuss";
             Blunderbuss.skillNameToken = "SHOTGUN_NAME";
@@ -160,7 +183,7 @@ namespace JakakaSkills
             Molotov.autoHandleLuminousShot = true;
             Molotov.requiredStock = 1;
             Molotov.stockToConsume = 1;
-            Molotov.icon = null; //jakakaassets.LoadAsset<Sprite>("Molotov.png");
+            Molotov.icon = jakakaassets.LoadAsset<Sprite>("Molotov.png");
             Molotov.skillDescriptionToken = "MOLOTOV_DESCRIPTION";
             Molotov.skillName = "Molotov";
             Molotov.skillNameToken = "MOLOTOV_NAME";
@@ -201,7 +224,7 @@ namespace JakakaSkills
             Switchback.requiredStock = 1;
             Switchback.stockToConsume = 0;
             Switchback.autoHandleLuminousShot = true;
-            Switchback.icon = null; //jakakaassets.LoadAsset<Sprite>("Marshall.png");
+            Switchback.icon = jakakaassets.LoadAsset<Sprite>("Switchback.png");
             Switchback.skillDescriptionToken = "SWITCHBACK_DESCRIPTION";
             Switchback.skillName = "Switchback";
             Switchback.skillNameToken = "SWITCHBACK_NAME";
