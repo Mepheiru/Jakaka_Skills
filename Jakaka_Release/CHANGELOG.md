@@ -1,3 +1,8 @@
+**2.0.1 Changes:**
+
+* Changed icon for reasons
+* Dependencies (i think i got all them :b)
+
 **2.0.0 Changes:**
 
 * **Recoded The Entire Mod**
@@ -50,7 +55,7 @@
 
 **1.2.1 Changes:**
 
-* Fixed Molotov Not Rendering Image (FML Q~Q)
+* Fixed Molotov Not Rendering Image (FML Q\~Q)
 
 **1.2.0 Changes:**
 
@@ -94,3 +99,4 @@
 **1.0.0 Changes:**
 
 * First release
+
