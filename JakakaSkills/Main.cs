@@ -1,5 +1,6 @@
 using BepInEx;
 using EntityStates;
+using JakakaSkills.MyEntityStates;
 using R2API;
 using R2API.Utils;
 using RoR2;
@@ -32,6 +33,8 @@ namespace JakakaSkills
             AddBlunderbussSkill();
             AddMolotovSkill();
             AddSwitchbackSkill();
+            AddLightshowSkill();
+
             Assembly assembly = typeof(Main).Assembly;
             bool flag = default;
 
@@ -76,6 +79,7 @@ namespace JakakaSkills
             LanguageAPI.Add("KEYWORD_MOLOTOV_ATK_EFFECT", "<style=cKeywordName><style=cDeath>Molotov</style></style>" + "<style=cSub><style=cIsUtility>Attack speed</style> is <style=cIsDamage>67% as effective</style>, and also increases <style=cDeath>Molotov</style> radius at <style=cIsDamage>100% effectiveness</style>.</style>");
             LanguageAPI.Add("KEYWORD_SWITCHBACK_SHOTGUN_ATK_EFFECT", "<style=cKeywordName><style=cDeath>Shotgun</style></style>" + "<style=cSub><style=cIsUtility>Attack speed doesn't apply normally</style>, it instead increases <style=cDeath>Shotgun</style> projectile count at <style=cIsDamage>33% effectiveness</style>.</style>");
             LanguageAPI.Add("KEYWORD_SWITCHBACK_AUTO_ATK_EFFECT", "<style=cKeywordName><style=cDeath>Full Auto</style></style>" + "<style=cSub><style=cIsUtility>Attack speed</style> applies to <style=cDeath>Full Auto</style> at <style=cIsDamage>100% effectiveness</style>.</style>");
+            LanguageAPI.Add("KEYWORD_LIGHTSHOW_EFFECT", "<style=cKeywordName><style=cDeath>Lightshow</style></style>" + "<style=cSub><style=cIsUtility>Attack speed doesn't apply normally</style>, it instead increases your <style=cIsUtility>max stock</style> at <style=cIsDamage>50% effectiveness</style>. This ability consumes all stock for damage <style=cIsUtility>proportional</style> to stock consumed. <style=cEvent><size=80%>The damage is equal to the shown numbers at 100 stock we are not liable for any absurd damage numbers caused by this mechanic.</size></style></style>");
         }
 
         public void AddVendettaSkill()
@@ -204,7 +208,7 @@ namespace JakakaSkills
         {
             GameObject CommandoBody = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/CommandoBody.prefab").WaitForCompletion();
             LanguageAPI.Add("SWITCHBACK_NAME", "Switchback");
-            LanguageAPI.Add("SWITCHBACK_DESCRIPTION", "<style=cDeath>Shotgun</style>. <style=cDeath>Full Auto</style>. <style=cIsUtility>Reloadable</style>. Tap to fire a shotgun blast that deals <style=cIsDamage>2x6x50% damage</style>. Hold down to rapidly fire at full auto for <style=cIsDamage>65% damage</style> a shot.");
+            LanguageAPI.Add("SWITCHBACK_DESCRIPTION", "<style=cDeath>Shotgun</style>. <style=cDeath>Full Auto</style>. <style=cIsUtility>Reloadable</style>. Tap to fire a shotgun blast that deals <style=cIsDamage>2x6x50% damage</style>. Hold down to rapidly fire at full auto for <style=cIsDamage>85% damage</style> a shot.");
             SkillDef Switchback = ScriptableObject.CreateInstance<SkillDef>();
             Switchback.activationState = new SerializableEntityStateType(typeof(MyEntityStates.Switchback));
             Switchback.activationStateMachineName = "Weapon";
@@ -238,6 +242,63 @@ namespace JakakaSkills
                 skillDef = Switchback,
                 unlockableDef = null,
                 viewableNode = new ViewablesCatalog.Node(Switchback.skillNameToken, false)
+            };
+        }
+
+        private void AddLightshowSkill()
+        {
+            GameObject Operator = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC3/Drone Tech/DroneTechBody.prefab").WaitForCompletion();
+            LanguageAPI.Add("LIGHTSHOW_NAME", "L-34 Lightshow");
+            LanguageAPI.Add("LIGHTSHOW_DESCRIPTION", "<style=cDeath>Lightshow</style>. Charge your arm to fire a array of multipule lasers with teal doing <style=cIsDamage>12x225% damage</style> and red doing <style=cIsDamage>4x800% damage</style> at 100% charge");
+            SkillDef Lightshow = ScriptableObject.CreateInstance<SkillDef>();
+
+            On.RoR2.GenericSkill.RecalculateMaxStock += (orig, self) =>
+            {
+                orig(self);
+
+                if (self.skillDef == Lightshow)
+                {
+                    var body = self.characterBody;
+                    if (body)
+                    {
+                        self.maxStock = Mathf.Max(1, Mathf.RoundToInt(100f * (1f + (body.attackSpeed - 1f) * 0.5f)));
+                        self.stock = Mathf.Min(self.stock, self.maxStock);
+                    }
+                }
+            };
+
+            Lightshow.activationState = new SerializableEntityStateType(typeof(MyEntityStates.LightshowCharge));
+            Lightshow.activationStateMachineName = "Weapon";
+            Lightshow.baseMaxStock = 100;
+            Lightshow.rechargeStock = 1;
+            Lightshow.baseRechargeInterval = 0.185f;
+            Lightshow.isCooldownBlockedUntilManuallyReset = false;
+            Lightshow.dontAllowPastMaxStocks = true;
+            Lightshow.beginSkillCooldownOnSkillEnd = true;
+            Lightshow.resetCooldownTimerOnUse = true;
+            Lightshow.canceledFromSprinting = false;
+            Lightshow.cancelSprintingOnActivation = true;
+            Lightshow.fullRestockOnAssign = true;
+            Lightshow.interruptPriority = 0;
+            Lightshow.isCombatSkill = true;
+            Lightshow.mustKeyPress = false;
+            Lightshow.requiredStock = 20;
+            Lightshow.stockToConsume = 0;
+            Lightshow.autoHandleLuminousShot = true;
+            Lightshow.icon = jakakaassets.LoadAsset<Sprite>("Lightshow.png");
+            Lightshow.skillDescriptionToken = "LIGHTSHOW_DESCRIPTION";
+            Lightshow.skillName = "L-34 Lightshow";
+            Lightshow.skillNameToken = "LIGHTSHOW_NAME";
+            Lightshow.keywordTokens = ["KEYWORD_LIGHTSHOW_EFFECT"];
+            ContentAddition.AddSkillDef(Lightshow);
+            SkillLocator Locator = Operator.GetComponent<SkillLocator>();
+            SkillFamily Slot = Locator.special.skillFamily;
+            Array.Resize(ref Slot.variants, Slot.variants.Length + 1);
+            Slot.variants[Slot.variants.Length - 1] = new SkillFamily.Variant
+            {
+                skillDef = Lightshow,
+                unlockableDef = null,
+                viewableNode = new ViewablesCatalog.Node(Lightshow.skillNameToken, false)
             };
         }
     }

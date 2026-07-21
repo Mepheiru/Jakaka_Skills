@@ -34,6 +34,9 @@
 	  <Reference Include="R2API.Prefab">
 	    <HintPath>dependencies\R2API.Prefab.dll</HintPath>
 	  </Reference>
+	  <Reference Include="R2API.RecalculateStats">
+	    <HintPath>dependencies\R2API.RecalculateStats.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 </Project>

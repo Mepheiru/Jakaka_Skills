@@ -7,14 +7,10 @@ namespace JakakaSkills.MyEntityStates
 {
     public class Blunderbuss : BaseSkillState
     {
-        public float BaseDuration = 0.25f;
-
+        private float BaseDuration = 0.25f;
         private float Duration;
-
         private float SpreadMult;
-
         private float RecoilMult;
-
         private uint BulletAmount;
 
         public GameObject HitEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion();

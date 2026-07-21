@@ -13,7 +13,7 @@ namespace JakakaSkills.MyEntityStates
         private int Shots;
 
         private float Threshold = 0.185f;
-        private float FireInt = 0.0375f;
+        private float FireInt = 0.0575f;
         private float Timer = 0f;
         private bool Magdump = false;
         private bool AllTheSingleLadies = false;
@@ -103,15 +103,15 @@ namespace JakakaSkills.MyEntityStates
             {
                 characterBody.isSprinting = false;
             }
-            Util.PlaySound(FirePistol2.firePistolSoundString, base.gameObject);
+            Util.PlaySound("Play_commando_M2", gameObject);
             Ray AimRay = GetAimRay();
             StartAimMode(AimRay, 2f, false);
 
             PlayAnimation("Gesture Additive, Right", FirePistol2.FirePistolRightStateHash);
             PlayAnimation("Gesture Additive, Left", FirePistol2.FirePistolLeftStateHash);
 
-            EffectManager.SimpleMuzzleFlash(ShottyFlash, gameObject, ShottyMuzzle, false);
-            Util.PlaySound(FirePistol2.firePistolSoundString, base.gameObject);
+            EffectManager.SimpleMuzzleFlash(ShottyFlash, gameObject, "Muzzle", false);
+            Util.PlaySound("Play_commando_M2", gameObject);
             AddRecoil(-7f, -12f, -7f, 9f);
             if (isAuthority)
             {
@@ -129,7 +129,7 @@ namespace JakakaSkills.MyEntityStates
                     force = 16f,
                     falloffModel = BulletAttack.FalloffModel.Buckshot,
                     tracerEffectPrefab = ShotgunTracerEffectPrefab,
-                    muzzleName = ShottyMuzzle,
+                    muzzleName = "Muzzle",
                     hitEffectPrefab = ShotgunHitSpark,
                     isCrit = RollCrit(),
                     HitEffectNormal = true,
@@ -163,7 +163,7 @@ namespace JakakaSkills.MyEntityStates
             }
 
             EffectManager.SimpleMuzzleFlash(SmgFlash, gameObject, SmgMuzzle, false);
-            Util.PlaySound(FireBarrage.fireBarrageSoundString, base.gameObject);
+            Util.PlaySound("Play_commando_M1", gameObject);
             AddRecoil(-1.25f, -3f, -1.25f, 2f);
             if (isAuthority)
             {
@@ -177,7 +177,7 @@ namespace JakakaSkills.MyEntityStates
                     maxSpread = characterBody.spreadBloomAngle + 1.2f,
                     bulletCount = 1u,
                     procCoefficient = 0.5f,
-                    damage = characterBody.damage * 0.65f,
+                    damage = characterBody.damage * 0.85f,
                     force = 4f,
                     falloffModel = BulletAttack.FalloffModel.None,
                     tracerEffectPrefab = TracerEffectPrefab,
