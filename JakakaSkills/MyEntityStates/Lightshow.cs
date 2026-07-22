@@ -92,7 +92,7 @@ namespace JakakaSkills.MyEntityStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (fixedAge >= Duration && inputBank.skill1.down == false)
+            if (fixedAge >= Duration)
             {
                 outer.SetNextStateToMain();
                 return;
