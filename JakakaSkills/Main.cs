@@ -22,7 +22,7 @@ namespace JakakaSkills
         public const string PluginGUID = "com.Mephy.Jakaka_Skills";
         public const string PluginName = "Jakaka Skills";
         public const string PluginVersion = "2.0.1";
-      
+
         private AssetBundle jakakaassets;
 
         public void Awake()
@@ -49,6 +49,7 @@ namespace JakakaSkills
                 }
             }
         }
+
         private void LoadAssetBundle()
         {
             string folder = System.IO.Path.GetDirectoryName(Info.Location);

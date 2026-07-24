@@ -9,10 +9,10 @@ namespace JakakaSkills.MyEntityStates
     {
         private float Duration = 0.25f;
 
-        public GameObject HitEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC3/Drone Tech/NanoPistolImpactVFX.prefab").WaitForCompletion();
-        public GameObject TracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC3/Drone Tech/TracerNanoPistolCharged.prefab").WaitForCompletion();
-        public GameObject TracerEffectPrefab2 = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Golem/TracerGolem.prefab").WaitForCompletion();
-        public GameObject MuzzleFlash = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC3/Drone Tech/NanoPistolMuzzleFlashVFX.prefab").WaitForCompletion();
+        private GameObject HitEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC3/Drone Tech/NanoPistolImpactVFX.prefab").WaitForCompletion();
+        private GameObject TracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC3/Drone Tech/TracerNanoPistolCharged.prefab").WaitForCompletion();
+        private GameObject TracerEffectPrefab2 = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Golem/TracerGolem.prefab").WaitForCompletion();
+        private GameObject MuzzleFlash = Addressables.LoadAssetAsync<GameObject>("RoR2/DLC3/Drone Tech/NanoPistolMuzzleFlashVFX.prefab").WaitForCompletion();
 
         public override void OnEnter()
         {

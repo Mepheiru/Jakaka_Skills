@@ -7,21 +7,19 @@ namespace JakakaSkills.MyEntityStates
 {
     public class Blunderbuss : BaseSkillState
     {
-        private float BaseDuration = 0.25f;
-        private float Duration;
+        private float Duration = 0.25f;
         private float SpreadMult;
         private float RecoilMult;
         private uint BulletAmount;
 
-        public GameObject HitEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion();
-        public GameObject TracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/TracerBandit2Shotgun.prefab").WaitForCompletion();
-        public GameObject MuzzleFlash = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/MuzzleflashBandit2.prefab").WaitForCompletion();
+        private GameObject HitEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion();
+        private GameObject TracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/TracerBandit2Shotgun.prefab").WaitForCompletion();
+        private GameObject MuzzleFlash = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/MuzzleflashBandit2.prefab").WaitForCompletion();
 
         public override void OnEnter()
         {
             base.OnEnter();
             GetStock();
-            Duration = BaseDuration / attackSpeedStat;
             PlayAnimation("Gesture, Additive", "FireMainWeapon", "FireMainWeapon.playbackRate", 0.65f, 0f);
             Ray AimRay = GetAimRay();
             Util.PlaySound("Play_bandit2_m1_rifle", gameObject);

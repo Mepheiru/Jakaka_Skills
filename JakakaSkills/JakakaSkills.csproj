@@ -31,6 +31,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Reference Include="R2API.DamageType">
+	    <HintPath>dependencies\R2API.DamageType.dll</HintPath>
+	  </Reference>
 	  <Reference Include="R2API.Prefab">
 	    <HintPath>dependencies\R2API.Prefab.dll</HintPath>
 	  </Reference>

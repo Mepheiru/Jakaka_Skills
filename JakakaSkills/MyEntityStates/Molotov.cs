@@ -8,8 +8,8 @@ namespace JakakaSkills.MyEntityStates
 {
     public class Molotov : BaseSkillState
     {
-        public float BaseDuration = 0.25f;
-        public float Duration;
+        private float BaseDuration = 0.25f;
+        private float Duration;
 
         public override void OnEnter()
         {

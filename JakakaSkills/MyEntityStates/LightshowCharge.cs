@@ -12,10 +12,9 @@ namespace JakakaSkills.MyEntityStates
     public class LightshowCharge : BaseSkillState
     {
         private float Duration = 0.65f;
-
         private bool hasSwitchedToTimerLoop;
-
         Animator modelAnimator;
+
         public override void OnEnter()
         {
             base.OnEnter();

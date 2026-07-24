@@ -20,14 +20,14 @@ namespace JakakaSkills.MyEntityStates
 
         private float FireRate;
 
-        public GameObject ShottyFlash = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/MuzzleflashFMJ.prefab").WaitForCompletion();
-        public GameObject SmgFlash = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/MuzzleflashBarrage.prefab").WaitForCompletion();
+        private GameObject ShottyFlash = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/MuzzleflashFMJ.prefab").WaitForCompletion();
+        private GameObject SmgFlash = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/MuzzleflashBarrage.prefab").WaitForCompletion();
 
-        public GameObject HitEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/Hitspark1.prefab").WaitForCompletion();
-        public GameObject TracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/TracerCommandoDefault.prefab").WaitForCompletion();
+        private GameObject HitEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/Hitspark1.prefab").WaitForCompletion();
+        private GameObject TracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/TracerCommandoDefault.prefab").WaitForCompletion();
 
-        public GameObject ShotgunHitSpark = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/HitsparkCommandoShotgun.prefab").WaitForCompletion();
-        public GameObject ShotgunTracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/TracerCommandoShotgun.prefab").WaitForCompletion();
+        private GameObject ShotgunHitSpark = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/HitsparkCommandoShotgun.prefab").WaitForCompletion();
+        private GameObject ShotgunTracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/TracerCommandoShotgun.prefab").WaitForCompletion();
 
         public override void OnEnter()
         {
@@ -40,7 +40,7 @@ namespace JakakaSkills.MyEntityStates
         {
             base.FixedUpdate();
 
-            if (inputBank.interact.down)
+            if (inputBank.interact.down && inputBank.skill1.down)
             {
                 skillLocator.primary.stock = 0;
             }
@@ -176,7 +176,7 @@ namespace JakakaSkills.MyEntityStates
                     minSpread = 0f,
                     maxSpread = characterBody.spreadBloomAngle + 1.2f,
                     bulletCount = 1u,
-                    procCoefficient = 0.5f,
+                    procCoefficient = 1.0f,
                     damage = characterBody.damage * 0.85f,
                     force = 4f,
                     falloffModel = BulletAttack.FalloffModel.None,

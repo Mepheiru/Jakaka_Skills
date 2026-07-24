@@ -20,10 +20,10 @@ namespace JakakaSkills.MyEntityStates
         private bool Magdump = false;
         private bool AllTheSingleLadies = false;
 
-        public GameObject MuzzleFlash = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/MuzzleflashBandit2.prefab").WaitForCompletion();
-        public GameObject CrosshairOverridePrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2CrosshairPrepRevolverFire.prefab").WaitForCompletion();
-        public GameObject HitEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit2Pistol.prefab").WaitForCompletion();
-        public GameObject TracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/TracerBanditPistol.prefab").WaitForCompletion();
+        private GameObject MuzzleFlash = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/MuzzleflashBandit2.prefab").WaitForCompletion();
+        private GameObject CrosshairOverridePrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/Bandit2CrosshairPrepRevolverFire.prefab").WaitForCompletion();
+        private GameObject HitEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit2Pistol.prefab").WaitForCompletion();
+        private GameObject TracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/TracerBanditPistol.prefab").WaitForCompletion();
 
         public override void OnEnter()
         {
@@ -39,7 +39,7 @@ namespace JakakaSkills.MyEntityStates
         {
             base.FixedUpdate();
 
-            if (inputBank.interact.down)
+            if (inputBank.interact.down && inputBank.skill1.down)
             {
                 skillLocator.primary.stock = 0;
             }
