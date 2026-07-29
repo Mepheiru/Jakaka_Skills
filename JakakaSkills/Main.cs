@@ -1,6 +1,5 @@
 using BepInEx;
 using EntityStates;
-using JakakaSkills.MyEntityStates;
 using R2API;
 using R2API.Utils;
 using RoR2;
@@ -49,7 +48,7 @@ namespace JakakaSkills
                 }
             }
         }
-
+        
         private void LoadAssetBundle()
         {
             string folder = System.IO.Path.GetDirectoryName(Info.Location);
@@ -209,7 +208,7 @@ namespace JakakaSkills
         {
             GameObject CommandoBody = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/CommandoBody.prefab").WaitForCompletion();
             LanguageAPI.Add("SWITCHBACK_NAME", "Switchback");
-            LanguageAPI.Add("SWITCHBACK_DESCRIPTION", "<style=cDeath>Shotgun</style>. <style=cDeath>Full Auto</style>. <style=cIsUtility>Reloadable</style>. Tap to fire a shotgun blast that deals <style=cIsDamage>2x6x50% damage</style>. Hold down to rapidly fire at full auto for <style=cIsDamage>85% damage</style> a shot.");
+            LanguageAPI.Add("SWITCHBACK_DESCRIPTION", "<style=cDeath>Shotgun</style>. <style=cDeath>Full Auto</style>. <style=cIsUtility>Reloadable</style>. Tap to fire a shotgun blast that deals <style=cIsDamage>2x6x100% damage</style>. Hold down to rapidly fire at full auto for <style=cIsDamage>85% damage</style> a shot.");
             SkillDef Switchback = ScriptableObject.CreateInstance<SkillDef>();
             Switchback.activationState = new SerializableEntityStateType(typeof(MyEntityStates.Switchback));
             Switchback.activationStateMachineName = "Weapon";

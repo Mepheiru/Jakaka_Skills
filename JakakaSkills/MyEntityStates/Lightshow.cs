@@ -29,6 +29,7 @@ namespace JakakaSkills.MyEntityStates
                 {
                     Vector3 force = -AimRay.direction * (32.5f);
                     characterMotor.velocity += force;
+
                 }
 
                 EffectManager.SimpleMuzzleFlash(MuzzleFlash, gameObject, "Muzzle", false);

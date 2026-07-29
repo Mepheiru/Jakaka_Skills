@@ -125,7 +125,7 @@ namespace JakakaSkills.MyEntityStates
                     maxSpread = characterBody.spreadBloomAngle + 1.85f,
                     bulletCount = (uint)((attackSpeedStat / 3) * 18u),
                     procCoefficient = 0.275f,
-                    damage = characterBody.damage * 0.5f,
+                    damage = characterBody.damage * 1.0f,
                     force = 16f,
                     falloffModel = BulletAttack.FalloffModel.Buckshot,
                     tracerEffectPrefab = ShotgunTracerEffectPrefab,
