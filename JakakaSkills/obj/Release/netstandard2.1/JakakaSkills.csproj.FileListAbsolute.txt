@@ -1,0 +1,15 @@
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\bin\Release\netstandard2.1\JakakaSkills.deps.json
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\bin\Release\netstandard2.1\JakakaSkills.dll
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\bin\Release\netstandard2.1\JakakaSkills.pdb
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\bin\Release\netstandard2.1\R2API.Prefab.dll
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\obj\Release\netstandard2.1\JakakaSkills.csproj.AssemblyReference.cache
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\obj\Release\netstandard2.1\JakakaSkills.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\obj\Release\netstandard2.1\JakakaSkills.AssemblyInfoInputs.cache
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\obj\Release\netstandard2.1\JakakaSkills.AssemblyInfo.cs
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\obj\Release\netstandard2.1\JakakaSkills.csproj.CoreCompileInputs.cache
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\obj\Release\netstandard2.1\JakakaSkills.sourcelink.json
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\obj\Release\netstandard2.1\JakakaSk.890A264C.Up2Date
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\obj\Release\netstandard2.1\JakakaSkills.dll
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\obj\Release\netstandard2.1\JakakaSkills.pdb
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\bin\Release\netstandard2.1\R2API.RecalculateStats.dll
+C:\Users\Mepheiru\Documents\GitHub\Jakaka_Skills\JakakaSkills\bin\Release\netstandard2.1\R2API.DamageType.dll

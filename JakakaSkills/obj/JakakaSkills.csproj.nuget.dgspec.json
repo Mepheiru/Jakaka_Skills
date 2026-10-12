@@ -1,0 +1,101 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Mepheiru\\Documents\\GitHub\\Jakaka_Skills\\JakakaSkills\\JakakaSkills.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Mepheiru\\Documents\\GitHub\\Jakaka_Skills\\JakakaSkills\\JakakaSkills.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Mepheiru\\Documents\\GitHub\\Jakaka_Skills\\JakakaSkills\\JakakaSkills.csproj",
+        "projectName": "JakakaSkills",
+        "projectPath": "C:\\Users\\Mepheiru\\Documents\\GitHub\\Jakaka_Skills\\JakakaSkills\\JakakaSkills.csproj",
+        "packagesPath": "C:\\Users\\Mepheiru\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mepheiru\\Documents\\GitHub\\Jakaka_Skills\\JakakaSkills\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mepheiru\\Documents\\GitHub\\Jakaka_Skills\\NuGet.Config",
+          "C:\\Users\\Mepheiru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.bepinex.dev/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "framework": "netstandard2.1",
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.300"
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "framework": "netstandard2.1",
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "BepInEx.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.*, )"
+            },
+            "BepInEx.Core": {
+              "target": "Package",
+              "version": "[5.4.21, )"
+            },
+            "MMHOOK.RoR2": {
+              "target": "Package",
+              "version": "[2025.12.9, )"
+            },
+            "R2API.Items": {
+              "target": "Package",
+              "version": "[1.0.*, )"
+            },
+            "R2API.Language": {
+              "target": "Package",
+              "version": "[1.0.*, )"
+            },
+            "RiskOfRain2.GameLibs": {
+              "target": "Package",
+              "version": "[1.3.9-r.0, )"
+            },
+            "UnityEngine.Modules": {
+              "include": "Compile",
+              "target": "Package",
+              "version": "[2021.3.33, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
